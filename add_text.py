@@ -37,6 +37,6 @@ def file_opn(f_data):
 
 
 (f_data, mode) = input_check()
-txt = input("テキストに追加する文字を入力してください:") + "\n"
+txt = input("テキストに追加する文字を入力してくださ---い:") + "\n"
 file_make(f_data, txt, mode)
 file_opn(f_data)
