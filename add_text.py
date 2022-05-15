@@ -1,9 +1,8 @@
-import os
 from tkinter import filedialog
 
 
 def input_check():
-    f_check = input("テキストファイルの参照:r  新規作成:c を入力してください")
+    f_check = input("テキストファイルの参照:r  新規作成:c を入力してください:")
     if f_check == "r":
         mode = "a"
         f_typ = [("テキストファイル", "*.txt")]
@@ -12,10 +11,15 @@ def input_check():
         return f_data, mode
     elif f_check == "c":
         mode = "w"
-        f_data = input("新規作成するファイル名を入力してください:")
+        f_data = input("新規作成するテキストファイル名を入力してください:")
+        # .txt 拡張子がついているかのチェック
+        if not f_data.endswith(".txt"):
+            f_data += ".txt"
+
         if os.path.exists("./" + str(f_data)):
             print("同名のファイルが存在します。")
             return input_check()
+
         return f_data, mode
     else:
         print("入力した値が無効です")
@@ -33,6 +37,6 @@ def file_opn(f_data):
 
 
 (f_data, mode) = input_check()
-txt = input("テキストに追加する文字を入力してください:")
+txt = input("テキストに追加する文字を入力してください:") + "\n"
 file_make(f_data, txt, mode)
 file_opn(f_data)
