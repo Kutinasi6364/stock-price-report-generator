@@ -5,7 +5,7 @@ def input_check():
     f_check = input("テキストファイルの参照:r  新規作成:c を入力してください:")
     if f_check == "r":
         mode = "a"
-        f_typ = [("テキストファイル", "*.txt")]
+        f_typ = [("text", "*.txt")]
         r_dir = "/home/kutinasi6364_0126/Python"
         f_data = filedialog.askopenfilename(filetypes=f_typ, initialdir=r_dir)
         return f_data, mode
